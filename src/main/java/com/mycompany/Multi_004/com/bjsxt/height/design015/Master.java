@@ -24,7 +24,6 @@ public class Master {
 		for(int i = 0; i < workerCount; i ++){
 			this.workers.put(Integer.toString(i), new Thread(worker));
 		}
-		
 	}
 	
 	//5 需要一个提交任务的方法

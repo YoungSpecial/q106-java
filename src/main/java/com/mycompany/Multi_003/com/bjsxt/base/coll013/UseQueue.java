@@ -28,18 +28,18 @@ public class UseQueue {
 		array.add("c");
 		array.add("d");
 		array.add("e");
-		array.add("f");
+//		array.add("f");
 		System.out.println(array.offer("a", 3, TimeUnit.SECONDS));
 
 		
 		//阻塞队列
-		LinkedBlockingQueue<String> q = new LinkedBlockingQueue<String>();
-		q.offer("a");
-		q.offer("b");
-		q.offer("c");
-		q.offer("d");
-		q.offer("e");
-		q.add("f");
+		LinkedBlockingQueue<String> linkedBlockingQueue = new LinkedBlockingQueue<String>();
+		linkedBlockingQueue.offer("a");
+		linkedBlockingQueue.offer("b");
+		linkedBlockingQueue.offer("c");
+		linkedBlockingQueue.offer("d");
+		linkedBlockingQueue.offer("e");
+		linkedBlockingQueue.add("f");
 		//System.out.println(q.size());
 		
 //		for (Iterator iterator = q.iterator(); iterator.hasNext();) {
@@ -48,19 +48,19 @@ public class UseQueue {
 //		}
 		
 		List<String> list = new ArrayList<String>();
-		System.out.println(q.drainTo(list, 3));
+		System.out.println(linkedBlockingQueue.drainTo(list, 3));
 		System.out.println(list.size());
 		for (String string : list) {
 			System.out.println(string);
 		}
 
 		
-		final SynchronousQueue<String> q = new SynchronousQueue<String>();
+		final SynchronousQueue<String> stringSynchronousQueue = new SynchronousQueue<String>();
 		Thread t1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					System.out.println(q.take());
+					System.out.println(stringSynchronousQueue.take());
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -71,9 +71,9 @@ public class UseQueue {
 			
 			@Override
 			public void run() {
-				q.add("asdasd");
+				stringSynchronousQueue.add("asdasd");
 			}
 		});
-		t2.start();		
+//		t2.start();
 	}
 }

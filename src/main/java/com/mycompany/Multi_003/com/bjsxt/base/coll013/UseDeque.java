@@ -17,7 +17,7 @@ public class UseDeque {
 		dq.addLast("h");
 		dq.addLast("i");
 		dq.addLast("j");
-		//dq.offerFirst("k");
+		dq.addLast("k");
 		System.out.println("查看头元素：" + dq.peekFirst());
 		System.out.println("获取尾元素：" + dq.pollLast());
 		Object [] objs = dq.toArray();
