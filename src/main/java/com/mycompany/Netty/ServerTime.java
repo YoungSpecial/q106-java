@@ -3,13 +3,12 @@ package com.mycompany.Netty;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class Server {
+public class ServerTime {
 
 	public static void main(String[] args) throws Exception {
 		//1 第一个线程组 是用于接收Client端连接的
@@ -28,7 +27,7 @@ public class Server {
 			@Override
 			protected void initChannel(SocketChannel sc) throws Exception {
 				System.out.println("initChannel--------");
-				sc.pipeline().addLast(new ServerHandler());
+				sc.pipeline().addLast(new TimeServerHandler());
 			}
 		});
 

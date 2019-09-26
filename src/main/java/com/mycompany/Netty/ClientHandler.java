@@ -17,7 +17,7 @@ public class ClientHandler extends ChannelHandlerAdapter {
 			buf.readBytes(data);
 			String request = new String(data, "utf-8");
 			System.out.println("Client: " + request);
-			
+			ctx.writeAndFlush(Unpooled.copiedBuffer("response----".getBytes()));
 			
 		} finally {
 			ReferenceCountUtil.release(msg);
