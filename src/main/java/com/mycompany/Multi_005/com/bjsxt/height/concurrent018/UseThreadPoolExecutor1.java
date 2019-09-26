@@ -30,7 +30,7 @@ public class UseThreadPoolExecutor1 {
 				new ArrayBlockingQueue<Runnable>(3)			//指定一种队列 （有界队列）
 				//new LinkedBlockingQueue<Runnable>()
 				, new MyRejected()
-				//, new DiscardOldestPolicy()
+//				, new DiscardOldestPolicy()
 				);
 		
 		MyTask mt1 = new MyTask(1, "任务1");
