@@ -21,8 +21,8 @@ public class ServerHandler  extends ChannelHandlerAdapter {
 			System.out.println("Server: " + request);
 			//写给客户端
 			String response = "我是反馈的信息";
-			ctx.writeAndFlush(Unpooled.copiedBuffer("888".getBytes()));
-			//.addListener(ChannelFutureListener.CLOSE);
+			ctx.writeAndFlush(Unpooled.copiedBuffer("888".getBytes()))
+			.addListener(ChannelFutureListener.CLOSE);
 			
 
 	}

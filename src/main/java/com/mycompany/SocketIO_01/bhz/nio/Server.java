@@ -41,6 +41,7 @@ public class Server implements Runnable{
 				this.seletor.select();
 				//2 返回多路复用器已经选择的结果集
 				Iterator<SelectionKey> keys = this.seletor.selectedKeys().iterator();
+				System.out.println(this.seletor.selectedKeys().size());
 				//3 进行遍历
 				while(keys.hasNext()){
 					System.out.println(keys);
