@@ -7,10 +7,10 @@ import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.WorkHandler;
 import com.mycompany.Disruptor.bhz.generate1.Trade;
 
-public class Handler5 implements EventHandler<Trade>,WorkHandler<Trade> {
+public class Handler5 implements EventHandler<Trade>,WorkHandler<Trade> {  
 	  
     @Override  
-    public void onEvent(Trade event, long sequence, boolean endOfBatch) throws Exception {  
+    public void onEvent(Trade event, long sequence, boolean endOfBatch) throws Exception {
         this.onEvent(event);  
     }  
   

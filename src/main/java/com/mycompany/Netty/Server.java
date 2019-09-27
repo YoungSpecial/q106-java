@@ -27,16 +27,19 @@ public class Server {
 		 .childHandler(new ChannelInitializer<SocketChannel>() {
 			@Override
 			protected void initChannel(SocketChannel sc) throws Exception {
+				System.out.println("initChannel--------");
 				sc.pipeline().addLast(new ServerHandler());
 			}
 		});
 
 		//绑定指定的端口 进行监听
-		ChannelFuture f = b.bind(8765).sync(); 
-		
+		ChannelFuture f = b.bind(8765).sync();
+
+		System.out.println("ChannelFuture----");
 		//Thread.sleep(1000000);
 		f.channel().closeFuture().sync();
-		
+
+		System.out.println("ChannelFuture----Close--");
 		bossGroup.shutdownGracefully();
 		workerGroup.shutdownGracefully();
 		 

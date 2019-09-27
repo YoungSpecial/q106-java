@@ -33,6 +33,7 @@ public class LongEventMain {
 				new Disruptor<LongEvent>(factory, ringBufferSize, executor, ProducerType.SINGLE, new YieldingWaitStrategy());
 		// 连接消费事件方法
 		disruptor.handleEventsWith(new LongEventHandler());
+		disruptor.handleEventsWith(new LongEventHandler());
 		
 		// 启动
 		disruptor.start();
