@@ -1,6 +1,8 @@
 package com.mycompany.SocketIO_02.bhz.netty.serial;
 
+import com.mycompany.SocketIO_02.bhz.utils.GzipUtils;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -11,7 +13,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import java.io.File;
 import java.io.FileInputStream;
 
-import bhz.utils.GzipUtils;
 
 public class Client {
 
@@ -38,13 +39,13 @@ public class Client {
 			req.setId("" + i);
 			req.setName("pro" + i);
 			req.setRequestMessage("数据信息" + i);	
-			String path = System.getProperty("user.dir") + File.separatorChar + "sources" +  File.separatorChar + "001.jpg";
-			File file = new File(path);
-	        FileInputStream in = new FileInputStream(file);  
-	        byte[] data = new byte[in.available()];  
-	        in.read(data);  
-	        in.close(); 
-			req.setAttachment(GzipUtils.gzip(data));
+//			String path = System.getProperty("user.dir") + File.separatorChar + "sources" +  File.separatorChar + "001.jpg";
+//			File file = new File(path);
+//	        FileInputStream in = new FileInputStream(file);
+//	        byte[] data = new byte[in.available()];
+//	        in.read(data);
+//	        in.close();
+//			req.setAttachment(GzipUtils.gzip(data));
 			cf.channel().writeAndFlush(req);
 		}
 
